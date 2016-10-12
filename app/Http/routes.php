@@ -10,6 +10,11 @@
 | and give it the controller to call when that URI is requested.
 |
 */
+// API 相关
+Route::group(['prefix' => 'api', 'namespace' => 'Api'], function(){
+    Route::any('router', 'RouterController@index');  // API 入口
+});
+
 function user_ins(){
     return new App\User;
 }
