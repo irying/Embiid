@@ -10,6 +10,7 @@
 | and give it the controller to call when that URI is requested.
 |
 */
+Route::any('fight', 'FightController@index');
 // API 相关
 Route::group(['prefix' => 'api', 'namespace' => 'Api'], function(){
     Route::any('router', 'RouterController@index');  // API 入口
