@@ -15,7 +15,7 @@ namespace App\Services\Container;
 
 class Fly implements SuperModuleInterface
 {
-    public function activate(array $target)
+    public function activate()
     {
         echo "i can fly<br>";
     }

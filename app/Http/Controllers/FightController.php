@@ -14,6 +14,9 @@ namespace App\Http\Controllers;
 
 
 use App\Services\Container\Container;
+use App\Services\Container\Fly;
+use App\Services\Container\Superman;
+use App\Services\Container\XPower;
 
 class FightController extends Controller
 {
@@ -23,21 +26,18 @@ class FightController extends Controller
         $container->bind('superman', function($container, $moduleName) {
             return new Superman($container->make($moduleName));
         });
-
         // 向该 超级工厂添加超能力模组的生产脚本
         $container->bind('xpower', function($container) {
             return new XPower;
         });
-
         // 同上
         $container->bind('fly', function($container) {
-            return new UltraBomb;
+            return new Fly;
         });
-
-        $superman_1 = $container->make('superman', 'xpower');
-        $superman_2 = $container->make('superman', 'fly');
-        $this->superman_1->show();
-//        $superman_2->show();
+        $superman_1 = $container->make('superman', ['xpower']);
+        $superman_2 = $container->make('superman', ['fly']);
+        $superman_1->show();
+//       echo $superman_1;
 
     }
 

@@ -16,12 +16,12 @@ namespace App\Services\Container;
 
 class Container
 {
-    protected $bind;
+    protected $binds;
     protected $instances;
 
     public function bind($abstract, $concrete)
     {
-        if ($concrete instanceof Closure) {
+        if ($concrete instanceof \Closure) {
             $this->binds[$abstract] = $concrete;
         } else {
             $this->instances[$abstract] = $concrete;
@@ -34,7 +34,6 @@ class Container
         }
 
         array_unshift($parameters, $this);
-
         return call_user_func_array($this->binds[$abstract], $parameters);
     }
 }

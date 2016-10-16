@@ -15,7 +15,7 @@ namespace App\Services\Container;
 
 class XPower implements SuperModuleInterface
 {
-    public function activate(array $target)
+    public function activate()
     {
         echo "do you like x-power?<br>";
     }
